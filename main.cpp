@@ -170,8 +170,7 @@ void search()
         } while(nodeBantu != tail->next);
 
         if(status) {
-            cout << "Data ditemukan = " << endl;
-            cout << nodeBantu->data << endl;
+            cout << "Data ditemukan = " << nodeBantu->data << endl;
         } else {
             cout << "Data tidak ditemukan \n" << endl;
         }
@@ -210,6 +209,7 @@ int main() {
             cout<<" \n"<<endl;
             cout<<" ============================"<<endl;
             cout<<" =   SLLC WITH HEAD & TAIL  ="<<endl;
+            cout<<" = 1120031033 -Ririnrindarti="<<endl;
             cout<<" ============================"<<endl;
             cout<<" = 1. Insert Depan          ="<<endl;
             cout<<" = 2. Insert Belakang       ="<<endl;
