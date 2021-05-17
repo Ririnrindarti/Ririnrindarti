@@ -41,6 +41,7 @@ void insertDepan(int dataBaru) {
         head = nodeBaru;
         tail->next = head;
     }
+
     cout << "Data " << dataBaru << " masuk sebagai node paling depan" << endl;
 }
 
@@ -151,41 +152,36 @@ void tampilData() {
     }
 }
 
-void search(TNode* head,int x)
+void search()
 {
-    TNode *nodeBantu = head;
-    while (nodeBantu)
-    {
-        if (nodeBantu->data == x) {
-            cout << nodeBantu;
-            nodeBantu  =  nodeBantu->next;
-            
+    int cari;
+    bool status    =    false;
+    TNode *nodeBantu;
+    nodeBantu      =    head;
+    if(isEmpty() == 0) {
+        cout << "Cari data = ";
+        cin>>cari;
+        do {
+            if(cari == nodeBantu->data) {
+                status      =    true;
+                break;
+            }
+            nodeBantu       =    nodeBantu->next;
+        } while(nodeBantu != tail->next);
+
+        if(status) {
+            cout << "Data ditemukan = " << endl;
+            cout << nodeBantu->data << endl;
+        } else {
+            cout << "Data tidak ditemukan \n" << endl;
         }
-    }
-    cout << "Data tidak di temukan";
-    
-}
-void keluarkanisidata(int main keluar) {
-      TNode *nodekeluar, *nodeBantu;
-    nodekeluar = new TNode;
-
-    nodekeluar->data = nodeBantu;
-    nodekeluar->next = nodekeluar;
-
-    if (isEmpty() == 9) {
-        head = nodekeluar;
-        tail = nodekeluar;
-        head->next = head;
-        tail->next = tail;
     } else {
-        nodekeluar->next = head;
-        head = nodekeluar;
-        tail->next = head;
+        cout << "Daftar masih kosong \n" << endl;
     }
-    cout << "Data " << nodekeluar<< "isi data yang di temukan telah di keluarkan " << endl;
- }
+}
+
 int main() {
-    int pil, dataBaru, cari, keluarkan;
+    int pil, dataBaru;
     TNode * head;
     do {
         cout<<" Masukan Pilihan : ";
@@ -208,17 +204,9 @@ int main() {
         } else if (pil == 6) {
             hapusSemua();
         } else if (pil == 7) {
-            cout<< "Cari Data = ";
-            cin>>cari;
-            search(head,cari);
+            search();
             return main();
         } else if (pil != 8) {
-
-        } else if (pil == 9) {
-              keluarkanisidata(int main keluar);
-              cout<< "keluarkan data =";
-              cin>>keluarkan;
-        } else {
             cout<<" \n"<<endl;
             cout<<" ============================"<<endl;
             cout<<" =   SLLC WITH HEAD & TAIL  ="<<endl;
@@ -231,7 +219,6 @@ int main() {
             cout<<" = 6. Hapus semua Data      ="<<endl;
             cout<<" = 7. cari data             ="<<endl;
             cout<<" = 8. Exit                  ="<<endl;
-            cout<<" = 9. keluarkan isi data    ="<<endl;
             cout<<" ============================"<<endl;
             cout<<"\n Maaf, Pilihan yang anda pilih tidak tersedia!";
             return main();
